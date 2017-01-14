@@ -11,8 +11,6 @@ import Container from './containers/container';
 const perDom = document.getElementById('per');
 
 ReactDom.render(
-  <Provider>
-    <Container />
-  </Provider>,
+  <Container />,
   document.getElementById('app')
 )
