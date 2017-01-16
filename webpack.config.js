@@ -2,10 +2,7 @@ var path = require('path');
 var webpack = require("webpack");
 
 module.exports = {
-    entry: {
-        'build/example1/main': './src/pages/helloworld/index.js',
-        'build/example2/main': './src/pages/helloworld1/index.js'
-    },
+    entry: {},
     devtool: "source-map",
     output: {
         path: './',
@@ -37,13 +34,6 @@ module.exports = {
                 loader: "file-loader"
             }
         ]
-    },
-    devServer: {
-        port: 3000,
-        contentBase: "./",//本地服务器所加载的页面所在的目录
-        colors: true,//终端中输出结果为彩色
-        historyApiFallback: true,//不跳转
-        inline: true//实时刷新
     },
     plugins: []
 }

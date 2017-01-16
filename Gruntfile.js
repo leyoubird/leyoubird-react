@@ -1,12 +1,24 @@
 module.exports = function(grunt) {
 
   var webpack = require("webpack");
+  var HtmlWebpackPlugin = require('html-webpack-plugin')
 
   // 处理函数
-  var makeBuild = function () {
-    grunt.file.recurse('./src/pages/', function (abspath, rootdir, subdir, filename) {
-      console.log(abspath + ' | ' + rootdir + ' | ' + subdir + ' | ' + filename);
+  var makeEntry = function (type, root) {
+    root = root || './src/pages/';
+    var rootList = {};
+    var buildDir = {};
+    grunt.file.recurse(root, function (abspath, rootdir, subdir, filename) {
+      if (subdir && subdir.indexOf('/') < 0) {
+        if (!rootList[subdir]) {
+          rootList[subdir] = 1;
+        }
+      }
     });
+    for (item in rootList) {
+      buildDir['build/' + item + '/index'] = root + item + '/index.js';
+    }
+    return buildDir;
   }
 
   // webpack配置
@@ -20,10 +32,10 @@ module.exports = function(grunt) {
     webpack: {
       options: webpackConfig,
       build: {
+        entry: makeEntry(),
         plugins: webpackConfig.plugins.concat(
           new webpack.DefinePlugin({
             "process.env": {
-              // This has effect on the react lib size
               "NODE_ENV": JSON.stringify("production")
             }
           }),
@@ -32,6 +44,7 @@ module.exports = function(grunt) {
         )
       },
       'build-src': {
+        entry: makeEntry(),
         devtool: "sourcemap",
         debug: true
       }
@@ -43,7 +56,11 @@ module.exports = function(grunt) {
       start: {
         inline: true,
         keepAlive: true,
+        port: 8080,
+        contentBase: "./",
+        colors: true,
         webpack: {
+          entry: makeEntry(),
           devtool: "source-map",
           debug: true
         }
@@ -56,8 +73,7 @@ module.exports = function(grunt) {
 
   // 任务列表
   grunt.registerTask('default', 'Say Hello', function() {
-    grunt.log.write('Hello! This is gruntfile, where your task begins ').ok();
-    makeBuild();
+    grunt.log.write('Hello! This is gruntfile, where your task begins in Leyoubird ').ok();
   });
 
   grunt.registerTask('build', '构建模式', function() {
