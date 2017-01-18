@@ -68,7 +68,7 @@ module.exports = function(grunt) {
         inline: true,
         keepAlive: true,
         port: 8080,
-        contentBase: "./",
+        contentBase: "./build/",
         colors: true,
         webpack: {
           entry: makeEntry(),
