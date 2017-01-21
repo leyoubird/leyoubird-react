@@ -1,6 +1,7 @@
 import React from 'react';
-console.log(1111);
 const {Component, PropTypes} = React;
+
+import Hello from '../components/hello-panel/index';
 
 class Container extends React.Component {
   constructor(props) {
@@ -9,9 +10,7 @@ class Container extends React.Component {
   render() {
     return (
       <div>
-        <h1>Hi!</h1>
-        <h2>this is Leyoubird Scaffolding</h2>
-        <hr />
+        <Hello />
       </div>
     )
   }

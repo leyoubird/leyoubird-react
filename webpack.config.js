@@ -5,7 +5,7 @@ module.exports = {
     entry: {},
     devtool: "source-map",
     output: {
-        path: './',
+        path: path.join(__dirname, '/build'),
         filename: '[name].js'
     },
     resolve: {
@@ -24,6 +24,10 @@ module.exports = {
                 query: {
                     presets: ['react', 'es2015']
                 }
+            },
+            {
+                test: /\.scss$/,
+                loader: 'style!css!sass'
             },
             {
                 test: /\.less$/,

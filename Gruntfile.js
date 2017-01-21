@@ -16,7 +16,11 @@ module.exports = function(grunt) {
       }
     });
     for (item in rootList) {
-      buildDir['build/' + item + '/index'] = root + item + '/index.js';
+      if (type === 'build') {
+        buildDir[item + '/index'] = root + item + '/index.js';
+      } else {
+        buildDir[item + '/index'] = root + item + '/index.js';
+      }
     }
     return buildDir;
   }
@@ -43,7 +47,7 @@ module.exports = function(grunt) {
     webpack: {
       options: webpackConfig,
       build: {
-        entry: makeEntry(),
+        entry: makeEntry('build'),
         plugins: webpackConfig.plugins.concat(
           new webpack.DefinePlugin({
             "process.env": {
@@ -55,7 +59,7 @@ module.exports = function(grunt) {
         )
       },
       'build-src': {
-        entry: makeEntry(),
+        entry: makeEntry('build'),
         devtool: "sourcemap",
         debug: true
       }
@@ -71,7 +75,7 @@ module.exports = function(grunt) {
         contentBase: "./build/",
         colors: true,
         webpack: {
-          entry: makeEntry(),
+          entry: makeEntry('dev'),
           devtool: "source-map",
           debug: true
         }
@@ -109,7 +113,7 @@ module.exports = function(grunt) {
   grunt.registerTask('dev', '开发模式', function () {
     grunt.log.write('启动开发模式');
     grunt.log.write('开发模式将会启动webpack dev server');
-    grunt.task.run(['copy:html', 'webpack-dev-server:start']);
+    grunt.task.run(['clean:build', 'copy:html', 'webpack-dev-server:start']);
   })
 
 
