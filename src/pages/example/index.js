@@ -4,14 +4,12 @@ import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 
 import Container from './containers/container';
-// import reducer from './src/reducers/reducers.js';
+import reducer from './reducers/reducer.js';
 
-// const store = createStore(reducer);
-
-const perDom = document.getElementById('per');
+const store = createStore(reducer);
 
 ReactDom.render(
-  <Provider>
+  <Provider store={store}>
     <Container />
   </Provider>,
   document.getElementById('app')
