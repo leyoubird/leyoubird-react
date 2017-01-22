@@ -6,7 +6,8 @@ module.exports = {
     devtool: "source-map",
     output: {
         path: path.join(__dirname, '/build'),
-        filename: '[name].js'
+        filename: '[name].js',
+        publicPath: '../'
     },
     resolve: {
         extensions: ['', '.js', '.jsx']
@@ -35,7 +36,7 @@ module.exports = {
             },
             {
                 test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.woff2$|\.ttf$|\.wav$|\.mp3$/,
-                loader: "file-loader"
+                loader: "file-loader?name=_assets/[hash].[ext]"
             }
         ]
     },

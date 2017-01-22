@@ -16,11 +16,7 @@ module.exports = function(grunt) {
       }
     });
     for (item in rootList) {
-      if (type === 'build') {
-        buildDir[item + '/index'] = root + item + '/index.js';
-      } else {
-        buildDir[item + '/index'] = root + item + '/index.js';
-      }
+      buildDir[item + '/index'] = root + item + '/index.js';
     }
     return buildDir;
   }
@@ -97,23 +93,28 @@ module.exports = function(grunt) {
     grunt.log.writeln('  grunt build-src  构建前端源码项目，用于本地调试或者预发布。');
     grunt.log.writeln('  grunt dev        开发模式，启动webpack-dev-server，用于日常开发和调试场景');
     grunt.log.writeln(' ');
-    grunt.log.writeln('注意：使用grunt dev后的build文件夹不能用于直接部署服务器，您需要重新执行grunt build')
+    grunt.log.writeln('注意：使用grunt dev后的build文件夹不能用于直接部署服务器，您需要重新执行grunt build');
+    // grunt.task.run('mkassets');
+  });
+
+  grunt.registerTask('mkassets', '创建build下的_assets', function () {
+    grunt.file.mkdir('./build/_assets/');
   });
 
   grunt.registerTask('build', '构建模式', function() {
     grunt.log.write('启动构建模式');
-    grunt.task.run(['clean:build', 'copy:html', 'webpack:build']);
+    grunt.task.run(['clean:build', 'mkassets', 'copy:html', 'webpack:build']);
   });
 
   grunt.registerTask('build-src', '构建-源码模式', function () {
     grunt.log.write('启动构建-源码模式');
-    grunt.task.run(['clean:build', 'copy:html', 'webpack:build-src']);
+    grunt.task.run(['clean:build', 'mkassets', 'copy:html', 'webpack:build-src']);
   });
 
   grunt.registerTask('dev', '开发模式', function () {
     grunt.log.write('启动开发模式');
     grunt.log.write('开发模式将会启动webpack dev server');
-    grunt.task.run(['clean:build', 'copy:html', 'webpack-dev-server:start']);
+    grunt.task.run(['clean:build', 'mkassets', 'copy:html', 'webpack-dev-server:start']);
   })
 
 
