@@ -20,6 +20,7 @@ class Container extends React.Component {
 }
 
 function mapStateToProps(state) {
+  console.log(state);
   return state; 
 }
 
