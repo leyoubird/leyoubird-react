@@ -70,6 +70,11 @@ module.exports = function(grunt) {
         port: 8080,
         contentBase: "./build/",
         colors: true,
+        proxy: {
+          '/api/*': {
+            target: 'http://123.56.194.182:8080/'
+          }
+        },
         webpack: {
           entry: makeEntry('dev'),
           devtool: "source-map",
@@ -83,6 +88,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-webpack');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-proxy');
 
   // 任务列表
   grunt.registerTask('default', 'Say Hello', function() {
@@ -94,7 +100,7 @@ module.exports = function(grunt) {
     grunt.log.writeln('  grunt dev        开发模式，启动webpack-dev-server，用于日常开发和调试场景');
     grunt.log.writeln(' ');
     grunt.log.writeln('注意：使用grunt dev后的build文件夹不能用于直接部署服务器，您需要重新执行grunt build');
-    // grunt.task.run('mkassets');
+    grunt.task.run('proxy');
   });
 
   grunt.registerTask('mkassets', '创建build下的_assets', function () {
