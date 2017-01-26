@@ -1,1 +1,2 @@
 export const EXAMPLE_CLICK_ACTION = 'EXAMPLE_CLICK_ACTION';
+export const QUERY_DATA = 'QUERY_DATA';

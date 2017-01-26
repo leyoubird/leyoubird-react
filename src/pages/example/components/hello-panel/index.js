@@ -8,6 +8,8 @@ class Hello extends Component {
     
     const {
       increase,
+      getData,
+
       exampleName,
       count
     } = this.props;
@@ -21,6 +23,9 @@ class Hello extends Component {
             目前已经有{count}人点赞啦~
             <button onClick={increase}>点赞</button>
           </p>
+        </div>
+        <div>
+          <button onClick={getData}>Get data</button>
         </div>
       </div>
     )
