@@ -8,12 +8,8 @@ class NotFound extends React.Component {
     super(props);
   }
   render() {
-    const {
-      notFound
-    } = this.props;
-
     return (
-      <div className="not-found-panel">{notFound}</div>
+      <div className="not-found-panel">您查找的资源不存在</div>
     )
   }
 }

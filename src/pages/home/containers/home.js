@@ -2,10 +2,11 @@ import React from 'react';
 const {Component, PropTypes} = React;
 import { connect } from 'react-redux';
 import actions from '../actions/actions.js';
-
 import {Link} from 'react-router';
 
-class Home extends React.Component {
+import Loading from '../../../widgets/loading/index';
+
+class Home extends Component {
   constructor(props) {
     super(props);
   }
@@ -17,7 +18,7 @@ class Home extends React.Component {
     return (
       <div>Leyoubird home
         <div>{name}</div>
-        <Link to="notFound">not found</Link>
+        <Loading show={true} />
       </div>
     )
   }
