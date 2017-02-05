@@ -9,9 +9,15 @@ export default class Header extends Component {
   }
   render() {
     return (
-      <div className="header">
-        Header
-      </div>
+      <section className="header">
+        <div className="header-content">
+          <div className="header-logo">乐游鸟Logo</div>
+          <div className="header-ctrl-panel">
+            <div className="header-btn">登录</div>
+            <div className="header-btn">注册</div>
+          </div>
+        </div>
+      </section>
     )
   }
 }

@@ -6,6 +6,7 @@ import {Link} from 'react-router';
 
 import Loading from '../../../widgets/loading/index';
 import Header from '../components/header/index';
+import PhotoScroller from '../components/photoScroller/index';
 
 class Home extends Component {
   constructor(props) {
@@ -19,6 +20,7 @@ class Home extends Component {
     return (
       <div>
         <Header />
+        <PhotoScroller />
         <div>{name}</div>
         <Loading />
       </div>

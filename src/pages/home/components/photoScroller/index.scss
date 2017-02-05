@@ -1,0 +1,12 @@
+.photo-scroller-panel {
+  height: 30vw; // 0.618比例
+  min-height: 300px;
+  background-color: #ccc;
+  position: relative;
+  overflow: hidden;
+
+  .photo-item {
+    width: 100%;
+    height: 100%;
+  }
+}

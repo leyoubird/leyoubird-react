@@ -1,4 +1,32 @@
+@import '../../index.scss';
+
 .header {
   height: 60px;
   background-color: #000;
+
+  .header-content {
+    width: w();
+    margin: 0 auto;
+    height: 60px;
+    line-height: 60px;
+
+    .header-logo {
+      float: left;
+      height: 100%;
+      background-color: #666;
+      color: #fff;
+      padding: 0 50px;
+    }
+    .header-ctrl-panel {
+      float: right;
+      height: 100%;
+
+      .header-btn {
+        display: inline-block;
+        color: #fff;
+        padding: 0 10px;
+        margin-left: 10px;
+      }
+    }
+  }
 }

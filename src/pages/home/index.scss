@@ -9,4 +9,12 @@
 html, body {
   padding: 0;
   margin: 0;
+  font-size: 16px;
+}
+
+/** 全局样式 */
+
+// 正文宽度
+@function w() {
+  @return 980px;
 }
