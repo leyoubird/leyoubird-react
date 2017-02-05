@@ -5,6 +5,7 @@ import actions from '../actions/actions.js';
 import {Link} from 'react-router';
 
 import Loading from '../../../widgets/loading/index';
+import Header from '../components/header/index';
 
 class Home extends Component {
   constructor(props) {
@@ -16,9 +17,10 @@ class Home extends Component {
     } = this.props;
 
     return (
-      <div>Leyoubird home
+      <div>
+        <Header />
         <div>{name}</div>
-        <Loading show={true} />
+        <Loading />
       </div>
     )
   }

@@ -10,6 +10,8 @@ import reducer from './reducers/reducer.js';
 
 import {Router, Route, Link, hashHistory, IndexRoute} from 'react-router';
 
+import './index.scss';
+
 const store = createStore(reducer);
 
 ReactDom.render(
