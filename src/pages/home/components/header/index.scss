@@ -2,8 +2,29 @@
 
 .header {
   height: 60px;
-  background-color: #000;
-
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  width: 100%;
+  
+  .header-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: #000;
+    opacity: 0.8;
+  }
+  .header-front {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+  }
   .header-content {
     width: w();
     margin: 0 auto;

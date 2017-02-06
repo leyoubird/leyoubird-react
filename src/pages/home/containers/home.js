@@ -7,6 +7,9 @@ import {Link} from 'react-router';
 import Loading from '../../../widgets/loading/index';
 import Header from '../components/header/index';
 import PhotoScroller from '../components/photoScroller/index';
+import Block from '../components/block/index';
+import Title from '../components/title/index';
+import PhotoList from '../components/photoList/index';
 
 class Home extends Component {
   constructor(props) {
@@ -14,14 +17,19 @@ class Home extends Component {
   }
   render() {
     const {
-      name
+      name,
+      bigImageList,
+      cateList1
     } = this.props;
 
     return (
       <div>
         <Header />
-        <PhotoScroller />
-        <div>{name}</div>
+        <PhotoScroller list={bigImageList} />
+        <Block>
+          <Title title="热门推荐" />
+          <PhotoList list={cateList1} />
+        </Block>
         <Loading />
       </div>
     )
