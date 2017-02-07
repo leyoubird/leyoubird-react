@@ -31,6 +31,7 @@ class Home extends Component {
           <PhotoList list={cateList1} />
         </Block>
         <Loading />
+        {this.props.children}
       </div>
     )
   }

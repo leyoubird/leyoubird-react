@@ -17,8 +17,7 @@ const store = createStore(reducer);
 ReactDom.render(
   <Provider store={store}>
     <Router history={hashHistory}>
-      <Route path="/" component={App}>
-        <IndexRoute component={Home}/>
+      <Route path="/" component={Home}>
         <Route path="notFound" component={NotFound} />
       </Route>
     </Router>
