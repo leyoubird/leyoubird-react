@@ -11,6 +11,8 @@ import Block from '../components/block/index';
 import Title from '../components/title/index';
 import PhotoList from '../components/photoList/index';
 
+import TextField from 'material-ui/TextField';
+
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -23,7 +25,7 @@ class Home extends Component {
     } = this.props;
 
     return (
-      <div>
+      <div className="leyoubird-home">
         <Header />
         <PhotoScroller list={bigImageList} />
         <Block>
@@ -31,6 +33,8 @@ class Home extends Component {
           <PhotoList list={cateList1} />
         </Block>
         <Loading />
+        <TextField hintText="Hint Text" />
+
         {this.props.children}
       </div>
     )

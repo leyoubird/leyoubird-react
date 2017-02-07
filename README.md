@@ -10,6 +10,8 @@
 - React
 - Webpack
 - React-redux
+- React-router
+- Material-UI
 - Sass
 - Grunt
 
