@@ -6,12 +6,11 @@ import {Link} from 'react-router';
 
 import Loading from '../../../widgets/loading/index';
 import Header from '../components/header/index';
+import Footer from '../components/footer/index';
 import PhotoScroller from '../components/photoScroller/index';
 import Block from '../components/block/index';
 import Title from '../components/title/index';
 import PhotoList from '../components/photoList/index';
-
-import TextField from 'material-ui/TextField';
 
 class Home extends Component {
   constructor(props) {
@@ -33,9 +32,10 @@ class Home extends Component {
           <PhotoList list={cateList1} />
         </Block>
         <Loading />
-        <TextField hintText="Hint Text" />
 
         {this.props.children}
+
+        <Footer />
       </div>
     )
   }

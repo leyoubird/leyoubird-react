@@ -1,0 +1,25 @@
+@import '../../index.scss';
+
+.footer {
+  min-height: 260px;
+  margin-top: 50px;
+  background-color: #20201a;
+
+  .footer-content {
+    width: w();
+    margin: 0 auto;
+
+    .footer-link-panel {
+      height: 200px;
+    }
+    .footer-copy {
+      height: 60px;
+      line-height: 60px;
+      color: #aaa;
+      font-size: 14px;
+      font-weight: 100;
+      text-align: center;
+      border-top: 1px solid #aaa;
+    }
+  }
+}
