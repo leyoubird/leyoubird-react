@@ -11,6 +11,7 @@ import PhotoScroller from '../components/photoScroller/index';
 import Block from '../components/block/index';
 import Title from '../components/title/index';
 import PhotoList from '../components/photoList/index';
+import SearchBox from '../components/searchbox/index';
 
 class Home extends Component {
   constructor(props) {
@@ -26,7 +27,10 @@ class Home extends Component {
     return (
       <div className="leyoubird-home">
         <Header />
-        <PhotoScroller list={bigImageList} />
+        <div style={{position:'relative'}}>
+          <PhotoScroller list={bigImageList} />
+          <SearchBox />
+        </div>
         <Block>
           <Title title="热门推荐" />
           <PhotoList list={cateList1} />
